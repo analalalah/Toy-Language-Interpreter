@@ -1,9 +1,9 @@
 package Model.Expression;
 
 import DataTypes.MyIDictionary;
+import Exception.ExpressionEvaluationException;
 import Exception.DivisionByZeroException;
 import Exception.InvalidArithmeticOperatorException;
-import Exception.UndeclaredVariableException;
 
 /**
  * Created by vladc on 12.10.2016.
@@ -13,14 +13,13 @@ public class ArithmeticExpression extends Expression {
     private Expression expr2;
     private char       operator;
 
-    public ArithmeticExpression(Expression expr1, Expression expr2, char operation) {
+    public ArithmeticExpression(Expression expr1, Expression expr2, char operator) {
         this.expr1 = expr1;
         this.expr2 = expr2;
-        this.operator = operation;
+        this.operator = operator;
     }
 
-    public int evaluate(MyIDictionary<String, Integer> symTab)
-            throws DivisionByZeroException, InvalidArithmeticOperatorException, UndeclaredVariableException {
+    public int evaluate(MyIDictionary<String, Integer> symTab) throws ExpressionEvaluationException {
         if (operator == '+')
             return (expr1.evaluate(symTab) + expr2.evaluate(symTab));
         else if (operator == '-')

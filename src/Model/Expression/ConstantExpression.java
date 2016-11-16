@@ -1,9 +1,7 @@
 package Model.Expression;
 
 import DataTypes.MyIDictionary;
-import Exception.DivisionByZeroException;
-import Exception.InvalidArithmeticOperatorException;
-import Exception.UndeclaredVariableException;
+import Exception.ExpressionEvaluationException;
 
 /**
  * Created by vladc on 12.10.2016.
@@ -15,11 +13,9 @@ public class ConstantExpression extends Expression {
         this.number = number;
     }
 
-    public int evaluate(MyIDictionary<String, Integer> symTab)
-            throws DivisionByZeroException, InvalidArithmeticOperatorException, UndeclaredVariableException {
+    public int evaluate(MyIDictionary<String, Integer> symTab) throws ExpressionEvaluationException {
         return number;
     }
-    // ...
 
     @Override
     public String toString() {

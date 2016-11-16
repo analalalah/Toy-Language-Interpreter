@@ -1,5 +1,3 @@
-package Tests;
-
 import DataTypes.*;
 import Model.Expression.*;
 import Exception.*;

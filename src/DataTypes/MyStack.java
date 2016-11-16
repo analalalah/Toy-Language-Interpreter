@@ -1,5 +1,7 @@
 package DataTypes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 import Exception.EmptyMyStackException;
 
@@ -10,7 +12,7 @@ public class MyStack<T> implements MyIStack<T> {
     private Stack<T> stack;
 
     public MyStack() {
-        stack = new Stack<T>();
+        stack = new Stack<>();
     }
 
     public T pop() throws EmptyMyStackException {
@@ -29,6 +31,13 @@ public class MyStack<T> implements MyIStack<T> {
 
     @Override
     public String toString() {
-        return stack.toString();
+        List<T> arr = new ArrayList<>(this.stack);
+        String str = "";
+
+        for (int i = arr.size() - 1; i > -1; i--) {
+            str += arr.get(i).toString();
+            str += "\n";
+        }
+        return str;
     }
 }

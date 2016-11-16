@@ -1,16 +1,19 @@
 package DataTypes;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Set;
+
 import Exception.InvalidKeyMyDictionaryException;
 
 /**
  * Created by vladc on 22.10.2016.
  */
 public class MyDictionary<K, V> implements MyIDictionary<K, V> {
-    private HashMap<K, V> dict;
+    protected HashMap<K, V> dict;
 
     public MyDictionary() {
-        dict = new HashMap<K, V> ();
+        dict = new HashMap<> ();
     }
 
     public V get(Object key) throws InvalidKeyMyDictionaryException {
@@ -31,17 +34,31 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
         return dict.remove(key);
     }
 
-//    public boolean containsKey(Object key) {
-//        return dict.containsKey(key);
-//    }
-//
-//    public boolean containsValue(Object value) {
-//        return dict.containsValue(value);
-//    }
-//
-//    public int size() {
-//        return dict.size();
-//    }
+    public V replace(K key, V value) throws InvalidKeyMyDictionaryException {
+        if (!dict.containsKey(key))
+            throw new InvalidKeyMyDictionaryException();
+        return dict.replace(key, value);
+    }
+
+    public boolean containsKey(Object key) {
+        return dict.containsKey(key);
+    }
+
+    public boolean containsValue(Object value) {
+        return dict.containsValue(value);
+    }
+
+    public Set<K> keySet() {
+        return dict.keySet();
+    }
+
+    public Collection<V> values() {
+        return dict.values();
+    }
+
+    public int size() {
+        return dict.size();
+    }
 
     public boolean isEmpty() {
         return dict.isEmpty();
@@ -49,6 +66,13 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
 
     @Override
     public String toString() {
-        return dict.toString();
+        String str = "";
+        for (K k : this.dict.keySet()) {
+            str += k.toString();
+            str += " --> ";
+            str += this.dict.get(k).toString();
+            str += "\n";
+        }
+        return str;
     }
 }

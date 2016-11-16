@@ -1,8 +1,7 @@
 package Model.Expression;
 
 import DataTypes.MyIDictionary;
-import Exception.DivisionByZeroException;
-import Exception.InvalidArithmeticOperatorException;
+import Exception.ExpressionEvaluationException;
 import Exception.UndeclaredVariableException;
 import Exception.InvalidKeyMyDictionaryException;
 
@@ -21,8 +20,7 @@ public class VariableExpression extends Expression {
         return id;
     }
 
-    public int evaluate(MyIDictionary<String, Integer> symTab)
-            throws DivisionByZeroException, InvalidArithmeticOperatorException, UndeclaredVariableException {
+    public int evaluate(MyIDictionary<String, Integer> symTab) throws ExpressionEvaluationException {
         try {
             return symTab.get(id);
         }

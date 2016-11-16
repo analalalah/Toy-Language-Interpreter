@@ -6,7 +6,6 @@ import Model.Statement.IStatement;
 import Repository.IRepository;
 import Exception.MyStatementExecutionException;
 import Exception.EmptyMyStackException;
-
 /**
  * Created by vladc on 25.10.2016.
  */
@@ -18,10 +17,8 @@ public class Controller {
     }
 
     public void add(IStatement st) {
-        ProgramState state = new ProgramState(new MyStack<IStatement>(),
-                new MyDictionary<String, Integer>(),
-                new MyList<Integer>(),
-                st);
+        ProgramState state = new ProgramState(new MyStack<>(), new MyDictionary<>(),
+                new MyList<>(), new MyDictionary<>(), st);
         this.repo.add(state);
     }
 
@@ -44,11 +41,10 @@ public class Controller {
     public void allStep() throws MyStatementExecutionException {
         ProgramState program = repo.getCurrentProgram();
 
-        System.out.println("Before execution:");
-        System.out.println(program.toString());
         while (!program.getExeStack().isEmpty()) {
             oneStep(program);
-            System.out.println(program.toString());
+//            System.out.println(program.toString());
+            repo.logProgramStateExec();
         }
     }
 }

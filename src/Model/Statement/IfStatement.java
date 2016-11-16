@@ -26,7 +26,7 @@ public class IfStatement implements IStatement {
                 thenStatement.toString() + ") Else (" + elseStatement.toString() + ")";
     }
 
-    public ProgramState execute(ProgramState state) {
+    public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
         MyIStack<IStatement> st = state.getExeStack();
         MyIDictionary<String, Integer> symTab = state.getSymTable();
 
@@ -36,17 +36,9 @@ public class IfStatement implements IStatement {
             else
                 st.push(elseStatement);
         }
-        catch (DivisionByZeroException e) {
-            System.err.println("DivisionByZeroException caught in IfStatement.execute().");
-            System.err.println(e.toString());
-        }
-        catch (InvalidArithmeticOperatorException e) {
-            System.err.println("InvalidArithmeticOperatorException caught in IfStatement.execute().");
-            System.err.println(e.toString());
-        }
-        catch (UndeclaredVariableException e) {
-            System.err.println("UndeclaredVariableException caught in IfStatement.execute().");
-            System.err.println(e.toString());
+        catch (ExpressionEvaluationException ex) {
+            System.err.println(ex.toString());
+            // TODO: 09.11.2016 maybe something else...
         }
         return state;
     }

@@ -22,23 +22,15 @@ public class AssignmentStatement implements IStatement {
         return id + " = " + expr.toString();
     }
 
-    public ProgramState execute(ProgramState state) {
+    public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
         MyIDictionary<String, Integer> symTab = state.getSymTable();
         try {
             int value = expr.evaluate(symTab);
             symTab.put(id, value);
         }
-        catch (DivisionByZeroException e) {
-            System.err.println("DivisionByZeroException caught in AssignmentStatement.execute().");
-            System.err.println(e.toString());
-        }
-        catch (InvalidArithmeticOperatorException e) {
-            System.err.println("InvalidArithmeticOperatorException caught in AssignmentStatement.execute().");
-            System.err.println(e.toString());
-        }
-        catch (UndeclaredVariableException e) {
-            System.err.println("UndeclaredVariableException caught in AssignmentStatement.execute().");
-            System.err.println(e.toString());
+        catch (ExpressionEvaluationException ex) {
+            System.err.println(ex.toString());
+            // TODO: 09.11.2016 maybe something else...
         }
         return state;
     }

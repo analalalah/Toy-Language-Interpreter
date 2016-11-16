@@ -8,4 +8,5 @@ import Model.ProgramState;
 public interface IRepository {
     ProgramState getCurrentProgram();
     void add(ProgramState state);
+    void logProgramStateExec();
 }
