@@ -10,11 +10,11 @@ import java.util.Scanner;
 /**
  * Created by vladc on 25.10.2016.
  */
-public class View_Old {
+public class View_Lab2 {
     private Controller  ctrl;
     private Scanner     cin;
 
-    public View_Old(Controller ctrl) {
+    public View_Lab2(Controller ctrl) {
         this.ctrl = ctrl;
         this.cin = new Scanner(System.in);
     }

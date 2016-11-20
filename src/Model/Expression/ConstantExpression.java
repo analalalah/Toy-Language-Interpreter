@@ -1,6 +1,7 @@
 package Model.Expression;
 
 import DataTypes.MyIDictionary;
+import DataTypes.MyIHeap;
 import Exception.ExpressionEvaluationException;
 
 /**
@@ -13,7 +14,7 @@ public class ConstantExpression extends Expression {
         this.number = number;
     }
 
-    public int evaluate(MyIDictionary<String, Integer> symTab) throws ExpressionEvaluationException {
+    public int evaluate(MyIDictionary<String, Integer> symTab, MyIHeap heap) throws ExpressionEvaluationException {
         return number;
     }
 

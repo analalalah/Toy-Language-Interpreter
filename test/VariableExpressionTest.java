@@ -9,9 +9,11 @@ import org.junit.Test;
  * Created by vladc on 31.10.2016.
  */
 public class VariableExpressionTest {
-    private VariableExpression e1;
-    private VariableExpression e2;
-    private MyIDictionary<String, Integer> symTab;
+    private VariableExpression              e1;
+    private VariableExpression              e2;
+    private MyIDictionary<String, Integer>  symTab;
+    private MyIHeap                         heap;
+
     @Before
     public void setUp() throws Exception {
         symTab = new MyDictionary<>();
@@ -27,19 +29,19 @@ public class VariableExpressionTest {
 
     @Test
     public void evaluate() throws Exception {
-        assert(e1.evaluate(symTab) == 42);
+        assert(e1.evaluate(symTab, heap) == 42);
         try {
-            e2.evaluate(symTab);
+            e2.evaluate(symTab, heap);
             assert(false);
         }
         catch (UndeclaredVariableException e) {
             assert(true);
         }
         symTab.put("A", 9);
-        assert(e2.evaluate(symTab) == 9);
+        assert(e2.evaluate(symTab, heap) == 9);
         symTab.remove("A");
         try {
-            e2.evaluate(symTab);
+            e2.evaluate(symTab, heap);
             assert(false);
         }
         catch (UndeclaredVariableException e) {

@@ -29,12 +29,25 @@ public class Repository implements IRepository {
     public void logProgramStateExec() {
         try (FileWriter fw = new FileWriter(logFilePath, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter out = new PrintWriter(bw))
+            PrintWriter pw = new PrintWriter(bw))
         {
-            out.println(this.getCurrentProgram().toString());
+            pw.println(this.getCurrentProgram().toString());
         }
-        catch (IOException ex) {
-            System.err.println("IOException: " + ex.toString());
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void logEndOfExecution() {
+        try (FileWriter fw = new FileWriter(logFilePath, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw))
+        {
+            pw.println("End of execution...");
+            pw.println("##################################################");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

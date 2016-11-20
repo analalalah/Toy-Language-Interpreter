@@ -1,6 +1,7 @@
 package Model.Expression;
 
 import DataTypes.MyIDictionary;
+import DataTypes.MyIHeap;
 import Exception.ExpressionEvaluationException;
 import Exception.UndeclaredVariableException;
 import Exception.InvalidKeyMyDictionaryException;
@@ -20,7 +21,7 @@ public class VariableExpression extends Expression {
         return id;
     }
 
-    public int evaluate(MyIDictionary<String, Integer> symTab) throws ExpressionEvaluationException {
+    public int evaluate(MyIDictionary<String, Integer> symTab, MyIHeap heap) throws ExpressionEvaluationException {
         try {
             return symTab.get(id);
         }

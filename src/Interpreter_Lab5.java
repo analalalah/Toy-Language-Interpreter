@@ -5,10 +5,12 @@ import Repository.*;
 import Controller.Controller;
 import View.*;
 import Model.ProgramState;
+
 /**
  * Created by vladc on 08.11.2016.
  */
-public class Interpreter {
+
+public class Interpreter_Lab5 {
     public static void main(String[] args) {
         // exemplul 1
         IStatement ex1;
@@ -29,8 +31,9 @@ public class Interpreter {
                 new VariableExpression("var_f"), new ConstantExpression(3), '+')
         );
         ex1 = new CompoundStatement(ex1_1, new CompoundStatement(ex1_2, new CompoundStatement(ex1_3, ex1_4)));
-        IRepository r1 = new Repository("E:\\PROJECTS\\Toy-Language-Interpreter\\log.txt");
-        r1.add(new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), ex1));
+        IRepository r1 = new Repository("res\\log.txt");
+        r1.add(new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(),
+                new MyHeap(), ex1));
         Controller c1 = new Controller(r1);
 
         // exemplul 2
@@ -53,8 +56,9 @@ public class Interpreter {
         );
         IStatement ex2_4 = new CloseRFileStatement(new VariableExpression("var_f"));
         ex2 = new CompoundStatement(ex2_1, new CompoundStatement(ex2_2, new CompoundStatement(ex2_3, ex2_4)));
-        IRepository r2 = new Repository("E:\\PROJECTS\\Toy-Language-Interpreter\\log.txt");
-        r2.add(new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), ex2));
+        IRepository r2 = new Repository("res\\log.txt");
+        r2.add(new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(),
+                new MyHeap(), ex2));
         Controller c2 = new Controller(r2);
 
 

@@ -9,4 +9,5 @@ public interface IRepository {
     ProgramState getCurrentProgram();
     void add(ProgramState state);
     void logProgramStateExec();
+    void logEndOfExecution();
 }

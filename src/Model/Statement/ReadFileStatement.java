@@ -1,7 +1,6 @@
 package Model.Statement;
 
-import DataTypes.MyIDictionary;
-import DataTypes.MyPair;
+import DataTypes.*;
 import Model.Expression.Expression;
 import Model.ProgramState;
 import Exception.*;
@@ -23,11 +22,12 @@ public class ReadFileStatement implements IStatement {
     public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
         MyIDictionary<Integer, MyPair<String, BufferedReader>> fileTable = state.getFileTable();
         MyIDictionary<String, Integer> symTable = state.getSymTable();
+        MyIHeap heap = state.getHeap();
 
         // 1. evaluate var_file_id to a value
         int value;
         try {
-            value = var_file_id.evaluate(symTable);
+            value = var_file_id.evaluate(symTable, heap);
         }
         catch (ExpressionEvaluationException ex) {
             throw new MyStatementExecutionException("Cannot read from var " + var_file_id.toString() + ".");

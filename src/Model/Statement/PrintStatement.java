@@ -1,7 +1,6 @@
 package Model.Statement;
 
-import DataTypes.MyIDictionary;
-import DataTypes.MyIList;
+import DataTypes.*;
 import Model.Expression.Expression;
 import Model.ProgramState;
 import Exception.*;
@@ -23,13 +22,13 @@ public class PrintStatement implements IStatement {
     public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
         MyIList<Integer> out = state.getOut();
         MyIDictionary<String, Integer> symTab = state.getSymTable();
+        MyIHeap heap = state.getHeap();
 
         try {
-            out.enqueue(expr.evaluate(symTab));
+            out.enqueue(expr.evaluate(symTab, heap));
         }
         catch (ExpressionEvaluationException ex) {
-            System.err.println(ex.toString());
-            // TODO: 09.11.2016 maybe something else...
+            ex.printStackTrace();
         }
         return state;
     }

@@ -1,7 +1,6 @@
 package Model.Statement;
 
-import DataTypes.MyIDictionary;
-import DataTypes.MyIStack;
+import DataTypes.*;
 import Model.Expression.Expression;
 import Model.ProgramState;
 import Exception.*;
@@ -29,16 +28,16 @@ public class IfStatement implements IStatement {
     public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
         MyIStack<IStatement> st = state.getExeStack();
         MyIDictionary<String, Integer> symTab = state.getSymTable();
+        MyIHeap heap = state.getHeap();
 
         try {
-            if (expr.evaluate(symTab) != 0)
+            if (expr.evaluate(symTab, heap) != 0)
                 st.push(thenStatement);
             else
                 st.push(elseStatement);
         }
         catch (ExpressionEvaluationException ex) {
-            System.err.println(ex.toString());
-            // TODO: 09.11.2016 maybe something else...
+            ex.printStackTrace();
         }
         return state;
     }

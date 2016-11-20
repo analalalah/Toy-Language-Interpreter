@@ -13,17 +13,20 @@ public class ProgramState {
     private MyIDictionary<String, Integer>                          symTable;
     private MyIList<Integer>                                        out;
     private MyIDictionary<Integer, MyPair<String, BufferedReader>>  fileTable;
+    private MyIHeap                                                 heap;
     private IStatement                                              originalProgram; // optional field (din cerinta)
 
     public ProgramState(MyIStack<IStatement>                                    exeStack,
                         MyIDictionary<String, Integer>                          symTable,
                         MyIList<Integer>                                        out,
                         MyIDictionary<Integer, MyPair<String, BufferedReader>>  fileTable,
+                        MyIHeap                                                 heap,
                         IStatement                                              originalProgram) {
         this.exeStack           = exeStack;
         this.symTable           = symTable;
         this.out                = out;
         this.fileTable          = fileTable;
+        this.heap               = heap;
         this.originalProgram    = originalProgram;
         this.exeStack.push(originalProgram);
     }
@@ -44,11 +47,17 @@ public class ProgramState {
         return this.fileTable;
     }
 
+    public MyIHeap getHeap() {
+        return this.heap;
+    }
+
     @Override
     public String toString() {
-        return "ExeStack:\n"    + exeStack.toString() +
+        return  "ExeStack:\n"     + exeStack.toString() +
                 "\nSymTable:\n"   + symTable.toString() +
                 "\nOut:\n"        + out.toString() +
-                "\nFileTable:\n"  + fileTable.toString();
+                "\nFileTable:\n"  + fileTable.toString() +
+                "\nHeap:\n"       + heap.toString() +
+                "--------------------------------------------------";
     }
 }

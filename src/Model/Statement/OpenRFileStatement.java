@@ -15,7 +15,7 @@ import java.io.FileReader;
 public class OpenRFileStatement implements IStatement {
     private String var_file_id;
     private String filename;
-    private static int fd = 2;
+    private static int fd = 0;
 
     public OpenRFileStatement(String var_file_id, String filename) {
         this.var_file_id = var_file_id;

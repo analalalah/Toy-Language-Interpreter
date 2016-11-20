@@ -10,6 +10,7 @@ import org.junit.Test;
  */
 public class ArithmeticExpressionTest {
     private MyIDictionary<String, Integer>  symTab;
+    private MyIHeap                         heap;
     private ConstantExpression              ce;
     private VariableExpression              ve;
     private ArithmeticExpression            ae;
@@ -17,6 +18,7 @@ public class ArithmeticExpressionTest {
     @Before
     public void setUp() throws Exception {
         symTab = new MyDictionary<>();
+        heap = new MyHeap();
         ce = new ConstantExpression(40);
         ve = new VariableExpression("n");
         symTab.put("n", 2);
@@ -32,14 +34,14 @@ public class ArithmeticExpressionTest {
     @Test
     public void evaluate() throws Exception {
         ae = new ArithmeticExpression(ve, ce, '+');
-        assert(ae.evaluate(symTab) == 42);
+        assert(ae.evaluate(symTab, heap) == 42);
         ae = new ArithmeticExpression(ce, ve, '-');
-        assert(ae.evaluate(symTab) == 38);
+        assert(ae.evaluate(symTab, heap) == 38);
         ae = new ArithmeticExpression(new ConstantExpression(21), ve, '*');
-        assert(ae.evaluate(symTab) == 42);
+        assert(ae.evaluate(symTab, heap) == 42);
         ae = new ArithmeticExpression(new VariableExpression("A"), new ConstantExpression(0), '/');
         try {
-            ae.evaluate(symTab);
+            ae.evaluate(symTab, heap);
             assert(false);
         }
         catch (DivisionByZeroException e) {
