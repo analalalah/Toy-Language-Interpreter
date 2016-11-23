@@ -10,6 +10,7 @@ import java.util.Scanner;
 /**
  * Created by vladc on 25.10.2016.
  */
+@Deprecated
 public class View_Lab2 {
     private Controller  ctrl;
     private Scanner     cin;

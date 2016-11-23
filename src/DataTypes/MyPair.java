@@ -1,9 +1,11 @@
 package DataTypes;
 
+import java.io.Serializable;
+
 /**
  * Created by vladc on 07.11.2016.
  */
-public class MyPair<F, S> {
+public class MyPair<F, S> implements Serializable {
     private F first;
     private S second;
 

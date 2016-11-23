@@ -1,5 +1,6 @@
 package DataTypes;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import Exception.EmptyMyListException;
@@ -7,7 +8,7 @@ import Exception.EmptyMyListException;
 /**
  * Created by vladc on 22.10.2016.
  */
-public class MyList<T> implements MyIList<T> {
+public class MyList<T> implements MyIList<T>, Serializable {
     private ArrayList<T> queue;
 
     public MyList() {

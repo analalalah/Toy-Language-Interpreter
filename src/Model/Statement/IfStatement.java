@@ -21,8 +21,8 @@ public class IfStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "If (" + expr.toString() + ") Then (" +
-                thenStatement.toString() + ") Else (" + elseStatement.toString() + ")";
+        return "If (" + expr.toString() + ") Then\n\t(" +
+                thenStatement.toString() + ")\nElse\n\t(" + elseStatement.toString() + ")";
     }
 
     public ProgramState execute(ProgramState state) throws MyStatementExecutionException {

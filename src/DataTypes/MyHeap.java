@@ -1,12 +1,13 @@
 package DataTypes;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by vladc on 19.11.2016.
  */
-public class MyHeap implements MyIHeap {
+public class MyHeap implements MyIHeap, Serializable {
     private Map<Integer, Integer> heap;
     private int next_free_location;
 

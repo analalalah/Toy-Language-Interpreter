@@ -10,4 +10,6 @@ public interface IRepository {
     void add(ProgramState state);
     void logProgramStateExec();
     void logEndOfExecution();
+    void serialize();
+    ProgramState deserialize();
 }

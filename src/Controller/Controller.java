@@ -72,4 +72,12 @@ public class Controller {
                 .filter(e -> symTableValues.contains(e.getKey()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
+
+    public void serialize() {
+        this.repo.serialize();
+    }
+
+    public ProgramState deserialize() {
+        return this.repo.deserialize();
+    }
 }

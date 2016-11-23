@@ -9,7 +9,7 @@ import Model.ProgramState;
 /**
  * Created by vladc on 08.11.2016.
  */
-
+@Deprecated
 public class Interpreter_Lab5 {
     public static void main(String[] args) {
         // exemplul 1

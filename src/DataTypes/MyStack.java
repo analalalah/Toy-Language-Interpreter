@@ -1,5 +1,6 @@
 package DataTypes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -8,7 +9,7 @@ import Exception.EmptyMyStackException;
 /**
  * Created by vladc on 22.10.2016.
  */
-public class MyStack<T> implements MyIStack<T> {
+public class MyStack<T> implements MyIStack<T>, Serializable {
     private Stack<T> stack;
 
     public MyStack() {

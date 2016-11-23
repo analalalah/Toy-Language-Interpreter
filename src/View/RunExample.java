@@ -13,6 +13,10 @@ public class RunExample extends Command {
         this.ctrl = ctrl;
     }
 
+    public Controller getController() {
+        return ctrl;
+    }
+
     @Override
     public void execute() {
         try {

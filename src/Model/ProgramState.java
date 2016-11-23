@@ -4,11 +4,12 @@ import DataTypes.*;
 import Model.Statement.*;
 
 import java.io.BufferedReader;
+import java.io.Serializable;
 
 /**
  * Created by vladc on 22.10.2016.
  */
-public class ProgramState {
+public class ProgramState implements Serializable {
     private MyIStack<IStatement>                                    exeStack;
     private MyIDictionary<String, Integer>                          symTable;
     private MyIList<Integer>                                        out;

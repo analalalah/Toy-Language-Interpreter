@@ -1,5 +1,6 @@
 package DataTypes;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
@@ -9,7 +10,7 @@ import Exception.InvalidKeyMyDictionaryException;
 /**
  * Created by vladc on 22.10.2016.
  */
-public class MyDictionary<K, V> implements MyIDictionary<K, V> {
+public class MyDictionary<K, V> implements MyIDictionary<K, V>, Serializable {
     protected HashMap<K, V> dict;
 
     public MyDictionary() {

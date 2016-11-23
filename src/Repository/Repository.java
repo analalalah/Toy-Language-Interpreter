@@ -11,6 +11,7 @@ import java.util.*;
 public class Repository implements IRepository {
     private Vector<ProgramState> programStates;
     private String logFilePath;
+    private final String serializeFile = "res\\ProgramState.ser";
 
     public Repository(String logFilePath) {
         this.programStates = new Vector<>();
@@ -49,5 +50,58 @@ public class Repository implements IRepository {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void serialize() {
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(serializeFile));
+            out.writeObject(this.getCurrentProgram());
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (out != null) {
+                try {
+                    out.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public ProgramState deserialize() {
+        ObjectInputStream in = null;
+        ProgramState state = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream(serializeFile));
+            state = (ProgramState)in.readObject();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException e) {
+            System.err.println("ERROR while deserializating...");
+            e.printStackTrace();
+        }
+        finally {
+            if (in != null) {
+                try {
+                    in.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        if (state != null) {
+            this.add(state);
+        }
+
+        return state;
     }
 }
