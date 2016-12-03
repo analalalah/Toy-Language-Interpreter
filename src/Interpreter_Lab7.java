@@ -16,6 +16,7 @@ import View.TextMenu;
 /**
  * Created by vladc on 20.11.2016.
  */
+@Deprecated
 public class Interpreter_Lab7 {
     private static final String logFilePath = "res\\log.txt";
 
