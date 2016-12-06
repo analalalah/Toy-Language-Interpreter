@@ -33,7 +33,7 @@ public class NewStatement implements IStatement {
             throw new MyStatementExecutionException(expr.toString() + " evaluation failed.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

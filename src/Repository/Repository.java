@@ -9,30 +9,25 @@ import java.util.*;
  * Created by vladc on 22.10.2016.
  */
 public class Repository implements IRepository {
-    private Vector<ProgramState> programStates;
+    private List<ProgramState>  list;
     private String logFilePath;
     private final String serializeFile = "res\\ProgramState.ser";
 
     public Repository(String logFilePath) {
-        this.programStates = new Vector<>();
+        this.list = new ArrayList<>();
         this.logFilePath = logFilePath;
     }
 
-    // temporary
-    public ProgramState getCurrentProgram() {
-        return programStates.get(programStates.size() - 1);
-    }
-
     public void add(ProgramState state) {
-        programStates.addElement(state);
+        this.list.add(state);
     }
 
-    public void logProgramStateExec() {
+    public void logProgramStateExec(ProgramState state) {
         try (FileWriter fw = new FileWriter(logFilePath, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw))
         {
-            pw.println(this.getCurrentProgram().toString());
+            pw.println(state.toString());
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -56,7 +51,7 @@ public class Repository implements IRepository {
         ObjectOutputStream out = null;
         try {
             out = new ObjectOutputStream(new FileOutputStream(serializeFile));
-            out.writeObject(this.getCurrentProgram());
+            out.writeObject(this.list);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -73,12 +68,18 @@ public class Repository implements IRepository {
         }
     }
 
-    public ProgramState deserialize() {
+    @SuppressWarnings("unchecked")
+    public void deserialize() {
         ObjectInputStream in = null;
-        ProgramState state = null;
+        @Deprecated
+//        ProgramState state = null;
+        List<ProgramState> new_list = null;
         try {
             in = new ObjectInputStream(new FileInputStream(serializeFile));
-            state = (ProgramState)in.readObject();
+//            state = (ProgramState)in.readObject();
+            new_list = (ArrayList<ProgramState>)in.readObject();
+            if (new_list != null)
+                this.list = new_list;
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -97,11 +98,12 @@ public class Repository implements IRepository {
                 }
             }
         }
+    }
 
-        if (state != null) {
-            this.add(state);
-        }
-
-        return state;
+    public List<ProgramState> getProgramList() {
+        return this.list;
+    }
+    public void setProgramList(List<ProgramState> list) {
+        this.list = list;
     }
 }

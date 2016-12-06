@@ -62,7 +62,7 @@ public class CloseRFileStatement implements IStatement {
         }
 
         // 5. return
-        return state;
+        return null;
     }
 
     @Override

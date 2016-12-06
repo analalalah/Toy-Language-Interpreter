@@ -35,7 +35,7 @@ public class WhileStatement implements IStatement {
             throw new MyStatementExecutionException("While(" + expression.toString() + ") failed to evaluate.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

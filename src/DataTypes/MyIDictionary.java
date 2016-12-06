@@ -3,12 +3,15 @@ package DataTypes;
 import Exception.InvalidKeyMyDictionaryException;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Set;
 
 /**
  * Created by vladc on 22.10.2016.
  */
 public interface MyIDictionary<K, V> {
+    void clone(MyIDictionary<K, V> toClone);
+    HashMap<K, V> getDict();
     V get(Object key) throws InvalidKeyMyDictionaryException;
     V put(K key, V value);
     V remove(Object key) throws InvalidKeyMyDictionaryException;

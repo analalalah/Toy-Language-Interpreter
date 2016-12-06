@@ -34,6 +34,6 @@ public class AssignmentStatement implements IStatement {
         catch (ExpressionEvaluationException ex) {
             ex.printStackTrace();
         }
-        return state;
+        return null;
     }
 }

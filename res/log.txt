@@ -1,6 +1,46 @@
+PID: 1
+ExeStack:
+((v = 10; new(a, 22)); (Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a)))))
+
+SymTable:
+
+Out:
+
+FileTable:
+
+Heap:
+--------------------------------------------------
+PID: 1
+ExeStack:
+(v = 10; new(a, 22))
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
+
+SymTable:
+
+Out:
+
+FileTable:
+
+Heap:
+--------------------------------------------------
+PID: 1
+ExeStack:
+(v = 10; new(a, 22))
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
+
+SymTable:
+
+Out:
+
+FileTable:
+
+Heap:
+--------------------------------------------------
+PID: 1
 ExeStack:
 v = 10
-(new(v, 20) ; (new(a, 22) ; Print(v)))
+new(a, 22)
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
 
 SymTable:
 
@@ -10,11 +50,13 @@ FileTable:
 
 Heap:
 --------------------------------------------------
+PID: 1
 ExeStack:
-(new(v, 20) ; (new(a, 22) ; Print(v)))
+v = 10
+new(a, 22)
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
 
 SymTable:
-v --> 10
 
 Out:
 
@@ -22,94 +64,163 @@ FileTable:
 
 Heap:
 --------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; Print(v))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; Print(v))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
+PID: 1
 ExeStack:
 new(a, 22)
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
+
+SymTable:
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+--------------------------------------------------
+PID: 1
+ExeStack:
+new(a, 22)
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
+
+SymTable:
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+--------------------------------------------------
+PID: 1
+ExeStack:
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 1
+ExeStack:
+(Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))); (Print(v); Print(rH(a))))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 1
+ExeStack:
+Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a))))))
+(Print(v); Print(rH(a)))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 1
+ExeStack:
+Fork((wH(a, 30); (v = 32; (Print(v); Print(rH(a))))))
+(Print(v); Print(rH(a)))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 1
+ExeStack:
+(Print(v); Print(rH(a)))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 10
+ExeStack:
+(wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 1
+ExeStack:
+(Print(v); Print(rH(a)))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 10
+ExeStack:
+(wH(a, 30); (v = 32; (Print(v); Print(rH(a)))))
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+--------------------------------------------------
+PID: 1
+ExeStack:
 Print(v)
+Print(rH(a))
 
 SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-1
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a)))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a)))))
-
-SymTable:
+a --> 1
 v --> 10
 
 Out:
@@ -117,288 +228,15 @@ Out:
 FileTable:
 
 Heap:
+1 --> 22
 --------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(Print(100 + rH(v)) ; Print(100 + rH(a)))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(Print(100 + rH(v)) ; Print(100 + rH(a)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-Print(100 + rH(v))
-Print(100 + rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-Print(100 + rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-120
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-120
-122
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a))))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a))))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a)))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a)))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(wH(a, 30) ; (Print(a) ; Print(rH(a))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(wH(a, 30) ; (Print(a) ; Print(rH(a))))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
+PID: 10
 ExeStack:
 wH(a, 30)
-(Print(a) ; Print(rH(a)))
+(v = 32; (Print(v); Print(rH(a))))
 
 SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-(Print(a) ; Print(rH(a)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-Print(a)
-Print(rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-Print(rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-30
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))))
-
-SymTable:
+a --> 1
 v --> 10
 
 Out:
@@ -406,12 +244,15 @@ Out:
 FileTable:
 
 Heap:
+1 --> 22
 --------------------------------------------------
+PID: 1
 ExeStack:
-new(v, 20)
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0))))
+Print(v)
+Print(rH(a))
 
 SymTable:
+a --> 1
 v --> 10
 
 Out:
@@ -419,179 +260,15 @@ Out:
 FileTable:
 
 Heap:
+1 --> 22
 --------------------------------------------------
-ExeStack:
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
+PID: 10
 ExeStack:
 wH(a, 30)
-(Print(a) ; (Print(rH(a)) ; a = 0))
+(v = 32; (Print(v); Print(rH(a))))
 
 SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-(Print(a) ; (Print(rH(a)) ; a = 0))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-Print(a)
-(Print(rH(a)) ; a = 0)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-(Print(rH(a)) ; a = 0)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-Print(rH(a))
-a = 0
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-a = 0
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-30
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 0
-v --> 1
-
-Out:
-2
-30
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; Print(v)))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; Print(v)))
-
-SymTable:
+a --> 1
 v --> 10
 
 Out:
@@ -599,1730 +276,245 @@ Out:
 FileTable:
 
 Heap:
+1 --> 22
 --------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; Print(v))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; Print(v))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-Print(v)
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-1
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a)))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a)))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(Print(100 + rH(v)) ; Print(100 + rH(a)))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(Print(100 + rH(v)) ; Print(100 + rH(a)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-Print(100 + rH(v))
-Print(100 + rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-Print(100 + rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-120
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-120
-122
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 6
-(Model.Statement.WhileStatement@52cc8049 ; Print(v))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Model.Statement.WhileStatement@52cc8049 ; Print(v))
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Model.Statement.WhileStatement@52cc8049
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-
-SymTable:
-v --> 6
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 6
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-
-SymTable:
-v --> 6
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 6
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(v) ; v = v - 1)
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(v) ; v = v - 1)
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-4
-
-FileTable:
-
-Heap:
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-x = 10 + 2 < 6
-(y = 10 + 2 < 6 ; (Print(x) ; Print(y)))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(y = 10 + 2 < 6 ; (Print(x) ; Print(y)))
-
-SymTable:
-x --> 11
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-y = 10 + 2 < 6
-(Print(x) ; Print(y))
-
-SymTable:
-x --> 11
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(x) ; Print(y))
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(x)
-Print(y)
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(y)
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-11
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-11
-0
-
-FileTable:
-
-Heap:
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 6
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(v) ; v = v - 1)
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(v) ; v = v - 1)
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-4
-
-FileTable:
-
-Heap:
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; Print(v)))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; Print(v)))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; Print(v))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; Print(v))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-Print(v)
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-1
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a)))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a)))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; (Print(100 + rH(v)) ; Print(100 + rH(a))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(Print(100 + rH(v)) ; Print(100 + rH(a)))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(Print(100 + rH(v)) ; Print(100 + rH(a)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-Print(100 + rH(v))
-Print(100 + rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-Print(100 + rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-120
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-120
-122
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a))))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a))))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-new(v, 20)
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a)))))
-
-SymTable:
-v --> 10
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; Print(rH(a)))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(wH(a, 30) ; (Print(a) ; Print(rH(a))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(wH(a, 30) ; (Print(a) ; Print(rH(a))))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-wH(a, 30)
-(Print(a) ; Print(rH(a)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-(Print(a) ; Print(rH(a)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-Print(a)
-Print(rH(a))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
+PID: 1
 ExeStack:
 Print(rH(a))
 
 SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-30
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-v = 10
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(new(v, 20) ; (new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))))
-
-SymTable:
+a --> 1
 v --> 10
 
 Out:
+10
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
-new(v, 20)
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0))))
+(v = 32; (Print(v); Print(rH(a))))
 
 SymTable:
+a --> 1
 v --> 10
 
 Out:
+10
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
-ExeStack:
-(new(a, 22) ; (wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0))))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-new(a, 22)
-(wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))
-
-SymTable:
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
---------------------------------------------------
-ExeStack:
-(wH(a, 30) ; (Print(a) ; (Print(rH(a)) ; a = 0)))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-wH(a, 30)
-(Print(a) ; (Print(rH(a)) ; a = 0))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 22
---------------------------------------------------
-ExeStack:
-(Print(a) ; (Print(rH(a)) ; a = 0))
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-Print(a)
-(Print(rH(a)) ; a = 0)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
-ExeStack:
-(Print(rH(a)) ; a = 0)
-
-SymTable:
-a --> 2
-v --> 1
-
-Out:
-2
-
-FileTable:
-
-Heap:
-1 --> 20
-2 --> 30
---------------------------------------------------
+PID: 1
 ExeStack:
 Print(rH(a))
-a = 0
 
 SymTable:
-a --> 2
-v --> 1
+a --> 1
+v --> 10
 
 Out:
-2
+10
 
 FileTable:
 
 Heap:
-1 --> 20
-2 --> 30
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
-a = 0
+(v = 32; (Print(v); Print(rH(a))))
 
 SymTable:
-a --> 2
-v --> 1
+a --> 1
+v --> 10
 
 Out:
-2
+10
+
+FileTable:
+
+Heap:
+1 --> 30
+--------------------------------------------------
+PID: 1
+ExeStack:
+
+SymTable:
+a --> 1
+v --> 10
+
+Out:
+10
 30
 
 FileTable:
 
 Heap:
-1 --> 20
-2 --> 30
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
+v = 32
+(Print(v); Print(rH(a)))
 
 SymTable:
-a --> 0
-v --> 1
+a --> 1
+v --> 10
 
 Out:
-2
+10
 30
 
 FileTable:
 
 Heap:
-1 --> 20
+1 --> 30
 --------------------------------------------------
-End of execution...
-##################################################
+PID: 10
 ExeStack:
-v = 6
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
+v = 32
+(Print(v); Print(rH(a)))
 
 SymTable:
+a --> 1
+v --> 10
 
 Out:
+10
+30
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
-(while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while ; Print(v))
+(Print(v); Print(rH(a)))
 
 SymTable:
-v --> 6
+a --> 1
+v --> 32
 
 Out:
+10
+30
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
+(Print(v); Print(rH(a)))
 
 SymTable:
-v --> 6
+a --> 1
+v --> 32
 
 Out:
+10
+30
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
-ExeStack:
-(Print(v) ; v = v - 1)
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
+PID: 10
 ExeStack:
 Print(v)
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
+Print(rH(a))
 
 SymTable:
-v --> 6
+a --> 1
+v --> 32
 
 Out:
+10
+30
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
-ExeStack:
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 6
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(v) ; v = v - 1)
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
-
-SymTable:
-v --> 5
-
-Out:
-6
-
-FileTable:
-
-Heap:
---------------------------------------------------
+PID: 10
 ExeStack:
 Print(v)
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
+Print(rH(a))
 
 SymTable:
-v --> 5
+a --> 1
+v --> 32
 
 Out:
-6
+10
+30
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
-v = v - 1
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
+Print(rH(a))
 
 SymTable:
-v --> 5
+a --> 1
+v --> 32
 
 Out:
-6
-5
+10
+30
+32
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
+PID: 10
 ExeStack:
-while (v - 4) do
-	(Print(v) ; v = v - 1)
-end_while
-Print(v)
+Print(rH(a))
 
 SymTable:
-v --> 4
+a --> 1
+v --> 32
 
 Out:
-6
-5
+10
+30
+32
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
-ExeStack:
-Print(v)
-
-SymTable:
-v --> 4
-
-Out:
-6
-5
-
-FileTable:
-
-Heap:
---------------------------------------------------
+PID: 10
 ExeStack:
 
 SymTable:
-v --> 4
+a --> 1
+v --> 32
 
 Out:
-6
-5
-4
+10
+30
+32
+30
 
 FileTable:
 
 Heap:
+1 --> 30
 --------------------------------------------------
-End of execution...
-##################################################
-ExeStack:
-x = 10 + 2 < 6
-(y = 10 + 2 < 6 ; (Print(x) ; Print(y)))
-
-SymTable:
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(y = 10 + 2 < 6 ; (Print(x) ; Print(y)))
-
-SymTable:
-x --> 11
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-y = 10 + 2 < 6
-(Print(x) ; Print(y))
-
-SymTable:
-x --> 11
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-(Print(x) ; Print(y))
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(x)
-Print(y)
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-Print(y)
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-11
-
-FileTable:
-
-Heap:
---------------------------------------------------
-ExeStack:
-
-SymTable:
-x --> 11
-y --> 0
-
-Out:
-11
-0
-
-FileTable:
-
-Heap:
---------------------------------------------------
-End of execution...
-##################################################

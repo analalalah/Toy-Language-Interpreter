@@ -5,17 +5,22 @@ import Model.ProgramState;
 import Model.Statement.IStatement;
 import Repository.IRepository;
 import Exception.MyStatementExecutionException;
-import Exception.EmptyMyStackException;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Collection;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 /**
  * Created by vladc on 25.10.2016.
  */
 public class Controller {
-    private IRepository repo;
+    private IRepository     repo;
+    private static int      id = 1;
+    private ExecutorService executor;
 
     public Controller(IRepository repo) {
         this.repo = repo;
@@ -23,6 +28,7 @@ public class Controller {
 
     public void add(IStatement st) {
         ProgramState state = new ProgramState(
+                id,
                 new MyStack<>(),
                 new MyDictionary<>(),
                 new MyList<>(),
@@ -31,37 +37,84 @@ public class Controller {
                 st
         );
         this.repo.add(state);
-    }
-
-    public ProgramState getCurrentProgram() {
-        return repo.getCurrentProgram();
-    }
-
-    public ProgramState oneStep(ProgramState state) throws MyStatementExecutionException {
-        MyIStack<IStatement> st = state.getExeStack();
-
-        try {
-            IStatement currentStatement = st.pop();
-            return currentStatement.execute(state);
-        }
-        catch (EmptyMyStackException e) {
-            throw new MyStatementExecutionException("Exception. Execution Stack is empty.");
-        }
+        id++;
     }
 
     public void allStep() throws MyStatementExecutionException {
-        ProgramState program = repo.getCurrentProgram();
+        executor = Executors.newFixedThreadPool(2);
+        while (true) {
+            // remove the completed programs
+            List<ProgramState> list = removeCompletedPrograms(repo.getProgramList());
+            if (list.size() == 0)
+                break ; // complete the execution of all threads
+            try {
+                oneStepForAllPrograms(list);
+            }
+            catch (InterruptedException e) {
+                System.err.println("The execution Thread has been interrupted.");
+                e.printStackTrace();
+            }
 
-        while (!program.getExeStack().isEmpty()) {
-            oneStep(program);
-            program.getHeap().setContent(conservativeGarbageCollector(
-                    program.getSymTable().values(),
-                    program.getHeap().getContent()
+            // Garbage Collector functionality
+            list.get(0).getHeap().setContent(conservativeGarbageCollector(
+                    list.get(0).getSymTable().values(),
+                    list.get(0).getHeap().getContent()
             ));
-            System.out.println(program.toString());
-            repo.logProgramStateExec();
         }
-        repo.logEndOfExecution();
+
+        executor.shutdownNow();
+    }
+
+    private void oneStepForAllPrograms(List<ProgramState> list) throws InterruptedException {
+        // I. Log the ProgramStates before the execution
+        list.forEach(p -> repo.logProgramStateExec(p));
+
+        // II. RUN concurrently one step for each of the existing ProgramStates
+        // ------------------------------
+        // 1. prepare the list of Callable
+        List<Callable<ProgramState>> callList = list.stream()
+                .map((ProgramState p) -> (Callable<ProgramState>)(() -> p.oneStep()))
+                .collect(Collectors.toList());
+
+        /*
+        List<Callable<ProgramState>> callList = list.stream()
+                .map((ProgramState p) -> new Callable<ProgramState> () {
+                    public ProgramState call() throws Exception {
+                        return p.oneStep();
+                    }
+                })
+                .collect(Collectors.toList());
+         */
+
+        // 2. start the execution of the Callable's (it returns the list of new created threads)
+        List<ProgramState> newProgramList =
+                executor.invokeAll(callList).stream()
+                .map(future -> { try {
+                                    return future.get();
+                                }
+                                catch (Exception e) {
+                                    System.err.println("There is an exception in Controller::oneStepForAllPrograms");
+                                    e.printStackTrace();
+                                }
+                                return null;
+                })
+                .filter(p -> p != null)
+                .collect(Collectors.toList());
+
+        // 3. add the new created threads to the list of existing threads
+        list.addAll(newProgramList);
+
+        // III. Log the ProgramStates after the execution
+        list.forEach(p -> repo.logProgramStateExec(p));
+
+        // IV. save the current programs in the repository
+        repo.setProgramList(list);
+    }
+
+    private List<ProgramState> removeCompletedPrograms(List<ProgramState> list) {
+        return list.stream()
+                .filter(ProgramState::isNotCompleted)
+                .collect(Collectors.toList());
     }
 
     private Map<Integer, Integer> conservativeGarbageCollector(
@@ -77,7 +130,7 @@ public class Controller {
         this.repo.serialize();
     }
 
-    public ProgramState deserialize() {
-        return this.repo.deserialize();
+    public void deserialize() {
+        this.repo.deserialize();
     }
 }

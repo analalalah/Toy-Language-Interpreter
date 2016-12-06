@@ -53,7 +53,7 @@ public class OpenRFileStatement implements IStatement {
         symTable.put(var_file_id, fd);
 
         // 5. return
-        return state;
+        return null;
     }
 
     @Override

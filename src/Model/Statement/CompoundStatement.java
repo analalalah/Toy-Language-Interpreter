@@ -17,13 +17,13 @@ public class CompoundStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "(" + first.toString() + " ; " + second.toString() + ")";
+        return "(" + first.toString() + "; " + second.toString() + ")";
     }
 
     public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
         MyIStack<IStatement> st = state.getExeStack();
         st.push(this.second);
         st.push(this.first);
-        return state;
+        return null;
     }
 }

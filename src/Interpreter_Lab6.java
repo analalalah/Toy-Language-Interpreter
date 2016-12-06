@@ -26,7 +26,6 @@ public class Interpreter_Lab6 {
         menu.addCommand(getExample4());
         menu.addCommand(new ExitCommand("0", "EXIT"));
         menu.show();
-        System.out.println("Bye!");
     }
 
     /*  Heap Allocation Example
@@ -55,15 +54,8 @@ public class Interpreter_Lab6 {
 
     private static RunExample getExample1() {
         IRepository repo = new Repository(logFilePath);
-        repo.add(new ProgramState(
-                new MyStack<>(),
-                new MyDictionary<>(),
-                new MyList<>(),
-                new MyDictionary<>(),
-                new MyHeap(),
-                example1()
-        ));
         Controller ctrl = new Controller(repo);
+        ctrl.add(example1());
         return new RunExample("1", "Heap Allocation Example", ctrl);
     }
 
@@ -99,15 +91,8 @@ public class Interpreter_Lab6 {
 
     private static RunExample getExample2() {
         IRepository repo = new Repository(logFilePath);
-        repo.add(new ProgramState(
-                new MyStack<>(),
-                new MyDictionary<>(),
-                new MyList<>(),
-                new MyDictionary<>(),
-                new MyHeap(),
-                example2()
-        ));
         Controller ctrl = new Controller(repo);
+        ctrl.add(example2());
         return new RunExample("2", "Heap Reading Example", ctrl);
     }
 
@@ -141,15 +126,8 @@ public class Interpreter_Lab6 {
 
     private static RunExample getExample3() {
         IRepository repo = new Repository(logFilePath);
-        repo.add(new ProgramState(
-                new MyStack<>(),
-                new MyDictionary<>(),
-                new MyList<>(),
-                new MyDictionary<>(),
-                new MyHeap(),
-                example3()
-        ));
         Controller ctrl = new Controller(repo);
+        ctrl.add(example3());
         return new RunExample("3", "Heap Writing Example", ctrl);
     }
 
@@ -185,15 +163,8 @@ public class Interpreter_Lab6 {
 
     private static RunExample getExample4() {
         IRepository repo = new Repository(logFilePath);
-        repo.add(new ProgramState(
-                new MyStack<>(),
-                new MyDictionary<>(),
-                new MyList<>(),
-                new MyDictionary<>(),
-                new MyHeap(),
-                example4()
-        ));
         Controller ctrl = new Controller(repo);
+        ctrl.add(example4());
         return new RunExample("4", "Garbage Collector Example", ctrl);
     }
 }

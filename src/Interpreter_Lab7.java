@@ -34,8 +34,6 @@ public class Interpreter_Lab7 {
 
 //        ProgramState st = new Controller(new Repository(logFilePath)).deserialize();
 //        System.out.println(st.toString());
-
-        System.out.println("Bye!");
     }
 
     /*  While Statement Example
@@ -70,15 +68,8 @@ public class Interpreter_Lab7 {
 
     private static RunExample getExample1() {
         IRepository repo = new Repository(logFilePath);
-        repo.add(new ProgramState(
-                new MyStack<>(),
-                new MyDictionary<>(),
-                new MyList<>(),
-                new MyDictionary<>(),
-                new MyHeap(),
-                example1()
-        ));
         Controller ctrl = new Controller(repo);
+        ctrl.add(example1());
         return new RunExample("1", "While Statement Example", ctrl);
     }
 
@@ -123,15 +114,8 @@ public class Interpreter_Lab7 {
 
     private static RunExample getExample2() {
         IRepository repo = new Repository(logFilePath);
-        repo.add(new ProgramState(
-                new MyStack<>(),
-                new MyDictionary<>(),
-                new MyList<>(),
-                new MyDictionary<>(),
-                new MyHeap(),
-                example2()
-        ));
         Controller ctrl = new Controller(repo);
+        ctrl.add(example2());
         return new RunExample("2", "Boolean Expressions Example", ctrl);
     }
 }

@@ -30,6 +30,6 @@ public class PrintStatement implements IStatement {
         catch (ExpressionEvaluationException ex) {
             ex.printStackTrace();
         }
-        return state;
+        return null;
     }
 }

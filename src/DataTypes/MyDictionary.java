@@ -11,10 +11,21 @@ import Exception.InvalidKeyMyDictionaryException;
  * Created by vladc on 22.10.2016.
  */
 public class MyDictionary<K, V> implements MyIDictionary<K, V>, Serializable {
-    protected HashMap<K, V> dict;
+    private HashMap<K, V> dict;
 
     public MyDictionary() {
-        dict = new HashMap<> ();
+        dict = new HashMap<>();
+    }
+
+    public void clone(MyIDictionary<K, V> toClone) {
+        dict = new HashMap<>();
+        for (K k : toClone.keySet()) {
+            this.dict.put(k, toClone.getDict().get(k));
+        }
+    }
+
+    public HashMap<K, V> getDict() {
+        return this.dict;
     }
 
     public V get(Object key) throws InvalidKeyMyDictionaryException {

@@ -66,7 +66,7 @@ public class ReadFileStatement implements IStatement {
         }
 
         // 5. return
-        return state;
+        return null;
     }
 
     @Override

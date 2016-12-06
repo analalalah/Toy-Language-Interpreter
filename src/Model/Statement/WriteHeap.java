@@ -36,7 +36,7 @@ public class WriteHeap implements IStatement {
             throw new MyStatementExecutionException(expr + " evaluation failed.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.io.Serializable;
  * Created by vladc on 22.10.2016.
  */
 public class ProgramState implements Serializable {
+    private int                                                     id;
     private MyIStack<IStatement>                                    exeStack;
     private MyIDictionary<String, Integer>                          symTable;
     private MyIList<Integer>                                        out;
@@ -17,12 +18,14 @@ public class ProgramState implements Serializable {
     private MyIHeap                                                 heap;
     private IStatement                                              originalProgram; // optional field (din cerinta)
 
-    public ProgramState(MyIStack<IStatement>                                    exeStack,
+    public ProgramState(int                                                     id,
+                        MyIStack<IStatement>                                    exeStack,
                         MyIDictionary<String, Integer>                          symTable,
                         MyIList<Integer>                                        out,
                         MyIDictionary<Integer, MyPair<String, BufferedReader>>  fileTable,
                         MyIHeap                                                 heap,
                         IStatement                                              originalProgram) {
+        this.id                 = id;
         this.exeStack           = exeStack;
         this.symTable           = symTable;
         this.out                = out;
@@ -52,9 +55,32 @@ public class ProgramState implements Serializable {
         return this.heap;
     }
 
+    public int  getId() {
+        return this.id;
+    }
+
+    /*  6. You must add one more method to the class PrgState: Boolean isNotCompleted() that
+        returns true when the exeStack is not empty and false otherwise
+     */
+    public boolean isNotCompleted() {
+        return (!this.exeStack.isEmpty());
+    }
+
+    public ProgramState oneStep() {
+        try {
+            IStatement currentStatement = this.exeStack.pop();
+            return currentStatement.execute(this);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
-        return  "ExeStack:\n"     + exeStack.toString() +
+        return  "PID: "           + id +
+                "\nExeStack:\n"   + exeStack.toString() +
                 "\nSymTable:\n"   + symTable.toString() +
                 "\nOut:\n"        + out.toString() +
                 "\nFileTable:\n"  + fileTable.toString() +

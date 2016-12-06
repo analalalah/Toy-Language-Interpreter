@@ -2,14 +2,18 @@ package Repository;
 
 import Model.ProgramState;
 
+import java.util.List;
+
 /**
  * Created by vladc on 22.10.2016.
  */
 public interface IRepository {
-    ProgramState getCurrentProgram();
+//    ProgramState getCurrentProgram();
     void add(ProgramState state);
-    void logProgramStateExec();
+    void logProgramStateExec(ProgramState state);
     void logEndOfExecution();
     void serialize();
-    ProgramState deserialize();
+    void deserialize();
+    List<ProgramState> getProgramList();
+    void setProgramList(List<ProgramState> list);
 }

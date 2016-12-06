@@ -32,9 +32,8 @@ public class Interpreter_Lab5 {
         );
         ex1 = new CompoundStatement(ex1_1, new CompoundStatement(ex1_2, new CompoundStatement(ex1_3, ex1_4)));
         IRepository r1 = new Repository("res\\log.txt");
-        r1.add(new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(),
-                new MyHeap(), ex1));
         Controller c1 = new Controller(r1);
+        c1.add(ex1);
 
         // exemplul 2
         IStatement ex2;
@@ -57,9 +56,8 @@ public class Interpreter_Lab5 {
         IStatement ex2_4 = new CloseRFileStatement(new VariableExpression("var_f"));
         ex2 = new CompoundStatement(ex2_1, new CompoundStatement(ex2_2, new CompoundStatement(ex2_3, ex2_4)));
         IRepository r2 = new Repository("res\\log.txt");
-        r2.add(new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(),
-                new MyHeap(), ex2));
         Controller c2 = new Controller(r2);
+        c2.add(ex2);
 
 
         TextMenu menu = new TextMenu();
