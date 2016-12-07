@@ -55,11 +55,11 @@ public class Controller {
                 e.printStackTrace();
             }
 
-            // Garbage Collector functionality
-            list.get(0).getHeap().setContent(conservativeGarbageCollector(
-                    list.get(0).getSymTable().values(),
-                    list.get(0).getHeap().getContent()
-            ));
+//            // Garbage Collector functionality -- NO!
+//            list.get(0).getHeap().setContent(conservativeGarbageCollector(
+//                    list.get(0).getSymTable().values(),
+//                    list.get(0).getHeap().getContent()
+//            ));
         }
 
         executor.shutdownNow();
@@ -117,6 +117,7 @@ public class Controller {
                 .collect(Collectors.toList());
     }
 
+    @Deprecated
     private Map<Integer, Integer> conservativeGarbageCollector(
             Collection<Integer> symTableValues,
             Map<Integer, Integer> heap

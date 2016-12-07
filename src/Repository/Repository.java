@@ -103,6 +103,7 @@ public class Repository implements IRepository {
     public List<ProgramState> getProgramList() {
         return this.list;
     }
+
     public void setProgramList(List<ProgramState> list) {
         this.list = list;
     }
