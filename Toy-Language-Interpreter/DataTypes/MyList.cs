@@ -43,7 +43,7 @@ namespace Toy_Language_Interpreter.DataTypes
             foreach (T t in list)
             {
                 str += t.ToString();
-                str += "\n";
+                str += "\r\n";
             }
             return str;
         }

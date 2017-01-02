@@ -57,7 +57,8 @@ namespace Toy_Language_Interpreter.Controller
             while (!program.GetExeStack().IsEmpty())
             {
                 OneStep(program);
-                repo.LogProgramStateExec();
+                Console.WriteLine(program.ToString());
+                repo.LogProgramStateExec(program);
             }
         }
     }

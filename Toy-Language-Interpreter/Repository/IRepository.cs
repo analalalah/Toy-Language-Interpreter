@@ -12,6 +12,6 @@ namespace Toy_Language_Interpreter.Repository
     {
         ProgramState GetCurrentProgram();
         void Add(ProgramState state);
-        void LogProgramStateExec();
+        void LogProgramStateExec(ProgramState state);
     }
 }

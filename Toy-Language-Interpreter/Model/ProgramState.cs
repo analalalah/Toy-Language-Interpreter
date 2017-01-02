@@ -54,11 +54,11 @@ namespace Toy_Language_Interpreter.Model
 
         public override string ToString()
         {
-            return "ExeStack:\n" + exeStack.ToString() +
-                "\nSymTable:\n" + symTab.ToString() +
-                "\nOutList:\n" + outList.ToString() +
-                "\nFileTable:\n" + fileTab.ToString() +
-                "-----------------------------------------";
+            return "ExeStack:\r\n" + exeStack.ToString() +
+                "\r\nSymTable:\r\n" + symTab.ToString() +
+                "\r\nOutList:\r\n" + outList.ToString() +
+                "\r\nFileTable:\r\n" + fileTab.ToString() +
+                "-----------------------------------------\r\n";
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Toy_Language_Interpreter.View
         {
             foreach (Command cmd in commands.Values)
             {
-                string line = string.Format("%4s. %s", cmd.GetKey(), cmd.GetDescription());
+                string line = string.Format("{0, 2}. {1}", cmd.GetKey(), cmd.GetDescription());
                 Console.WriteLine(line);
             }
         }

@@ -39,10 +39,10 @@ namespace Toy_Language_Interpreter.DataTypes
             T[] arr = stack.ToArray();
             string str = "";
 
-            for (int i = arr.Length - 1; i > -1; i--)
+            for (int i = 0; i < arr.Length; i++)
             {
                 str += arr[i].ToString();
-                str += "\n";
+                str += "\r\n";
             }
             return str;
         }

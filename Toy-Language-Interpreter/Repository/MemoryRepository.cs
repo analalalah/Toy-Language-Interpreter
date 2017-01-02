@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 using Toy_Language_Interpreter.Model;
 
+using System.IO;
+
 namespace Toy_Language_Interpreter.Repository
 {
-    class Repository
+    class MemoryRepository : IRepository
     {
         private List<ProgramState> programStates;
         private string logFilePath;
 
-        public Repository(string logFilePath)
+        public MemoryRepository(string logFilePath)
         {
             this.programStates = new List<ProgramState>();
             this.logFilePath = logFilePath;
@@ -29,9 +31,21 @@ namespace Toy_Language_Interpreter.Repository
             programStates.Add(state);
         }
 
-        public void LogProgramStateExec()
+        public void LogProgramStateExec(ProgramState state)
         {
-            throw new NotImplementedException();
+            StreamWriter fw;
+
+            try
+            {
+                fw = new StreamWriter(logFilePath, true);
+                fw.Write(state.ToString());
+                //fw.Write("\n");
+                fw.Close();
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }
