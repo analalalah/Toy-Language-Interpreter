@@ -38,7 +38,7 @@ namespace Toy_Language_Interpreter.Repository
             try
             {
                 fw = new StreamWriter(logFilePath, true);
-                fw.Write(state.ToString());
+                fw.Write(state.ToString().Replace("\n", "\r\n"));
                 //fw.Write("\n");
                 fw.Close();
             }

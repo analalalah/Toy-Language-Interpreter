@@ -33,7 +33,7 @@ namespace Toy_Language_Interpreter.Model.Statement
             {
                 Console.WriteLine(e.ToString());
             }
-            return state;
+            return null;
         }
 
         public override string ToString()

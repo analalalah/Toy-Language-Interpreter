@@ -22,7 +22,7 @@ namespace Toy_Language_Interpreter.Model.Statement
             MyIStack<IStatement> st = state.GetExeStack();
             st.Push(this.second);
             st.Push(this.first);
-            return state;
+            return null;
         }
 
         public override string ToString()

@@ -90,7 +90,7 @@ namespace Toy_Language_Interpreter.DataTypes
                 str += k.ToString();
                 str += " --> ";
                 str += dict[k].ToString();
-                str += "\r\n";
+                str += "\n";
             }
             return str;
         }

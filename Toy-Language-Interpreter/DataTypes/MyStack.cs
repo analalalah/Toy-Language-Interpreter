@@ -42,7 +42,7 @@ namespace Toy_Language_Interpreter.DataTypes
             for (int i = 0; i < arr.Length; i++)
             {
                 str += arr[i].ToString();
-                str += "\r\n";
+                str += "\n";
             }
             return str;
         }
