@@ -1,0 +1,491 @@
+ExeStack:
+v = 2
+Print(v)
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+v --> 2
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+v --> 2
+
+OutList:
+2
+
+FileTable:
+--------------------
+ExeStack:
+a = 2 - 2
+(If (a) Then (v = 2) Else (b = 3) ; Print(v))
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+(If (a) Then (v = 2) Else (b = 3) ; Print(v))
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+If (a) Then (v = 2) Else (b = 3)
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+b = 3
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+a --> 0
+b --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+a --> 0
+b --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+a = 2 - 2
+(If (a) Then (v = 2) Else (b = 3) ; Print(v))
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+(If (a) Then (v = 2) Else (b = 3) ; Print(v))
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+If (a) Then (v = 2) Else (b = 3)
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+b = 3
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+a --> 0
+b --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+a --> 0
+b --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+a = 2 - 2
+(If (a) Then (v = 2) Else (v = 3) ; Print(v))
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+(If (a) Then (v = 2) Else (v = 3) ; Print(v))
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+If (a) Then (v = 2) Else (v = 3)
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+v = 3
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+a --> 0
+v --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+a --> 0
+v --> 3
+
+OutList:
+3
+
+FileTable:
+--------------------
+ExeStack:
+v = 2
+Print(v)
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+v --> 2
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+v --> 2
+
+OutList:
+2
+
+FileTable:
+--------------------
+ExeStack:
+a = 2 - 2
+(If (a) Then (v = 2) Else (v = 3) ; Print(v))
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+(If (a) Then (v = 2) Else (v = 3) ; Print(v))
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+If (a) Then (v = 2) Else (v = 3)
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+v = 3
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+a --> 0
+v --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+a --> 0
+v --> 3
+
+OutList:
+3
+
+FileTable:
+--------------------
+ExeStack:
+v = 2
+Print(v)
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+v --> 2
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+v --> 2
+
+OutList:
+2
+
+FileTable:
+--------------------
+ExeStack:
+a = 2 + 3 * 5
+(b = a - 4 / 2 + 7 ; Print(b))
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+(b = a - 4 / 2 + 7 ; Print(b))
+
+SymTable:
+a --> 17
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+b = a - 4 / 2 + 7
+Print(b)
+
+SymTable:
+a --> 17
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(b)
+
+SymTable:
+a --> 17
+b --> 22
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+a --> 17
+b --> 22
+
+OutList:
+22
+
+FileTable:
+--------------------
+ExeStack:
+a = 2 - 2
+(If (a) Then (v = 2) Else (v = 3) ; Print(v))
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+(If (a) Then (v = 2) Else (v = 3) ; Print(v))
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+If (a) Then (v = 2) Else (v = 3)
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+v = 3
+Print(v)
+
+SymTable:
+a --> 0
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+a --> 0
+v --> 3
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+a --> 0
+v --> 3
+
+OutList:
+3
+
+FileTable:
+--------------------
+ExeStack:
+v = 2
+Print(v)
+
+SymTable:
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+Print(v)
+
+SymTable:
+v --> 2
+
+OutList:
+
+FileTable:
+--------------------
+ExeStack:
+
+SymTable:
+v --> 2
+
+OutList:
+2
+
+FileTable:
+--------------------
