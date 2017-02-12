@@ -16,7 +16,8 @@ public class ProgramState implements Serializable {
     private MyIList<Integer>                                        out;
     private MyIDictionary<Integer, MyPair<String, BufferedReader>>  fileTable;
     private MyIHeap                                                 heap;
-    private IStatement                                              originalProgram; // optional field (din cerinta)
+    private IStatement                                              originalProgram;
+    private MyILatchTable                                           latchTable;
 
     public ProgramState(int                                                     id,
                         MyIStack<IStatement>                                    exeStack,
@@ -24,6 +25,7 @@ public class ProgramState implements Serializable {
                         MyIList<Integer>                                        out,
                         MyIDictionary<Integer, MyPair<String, BufferedReader>>  fileTable,
                         MyIHeap                                                 heap,
+                        MyILatchTable                                           latchTable,
                         IStatement                                              originalProgram) {
         this.id                 = id;
         this.exeStack           = exeStack;
@@ -31,6 +33,7 @@ public class ProgramState implements Serializable {
         this.out                = out;
         this.fileTable          = fileTable;
         this.heap               = heap;
+        this.latchTable         = latchTable;
         this.originalProgram    = originalProgram;
         this.exeStack.push(originalProgram);
     }
@@ -55,7 +58,11 @@ public class ProgramState implements Serializable {
         return this.heap;
     }
 
-    public int  getId() {
+    public MyILatchTable getLatchTable() {
+        return this.latchTable;
+    }
+
+    public int getId() {
         return this.id;
     }
 
@@ -85,6 +92,7 @@ public class ProgramState implements Serializable {
                 "\nOut:\n"        + out.toString() +
                 "\nFileTable:\n"  + fileTable.toString() +
                 "\nHeap:\n"       + heap.toString() +
+                "\nLatchTable:\n" + latchTable.toString() +
                 "--------------------------------------------------";
     }
 }

@@ -100,6 +100,15 @@ public class Repository implements IRepository {
         }
     }
 
+    public ProgramState getProgramById(int id) {
+        for (ProgramState p : list) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
     public List<ProgramState> getProgramList() {
         return this.list;
     }

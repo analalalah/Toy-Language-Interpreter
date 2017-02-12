@@ -3,6 +3,7 @@ package DataTypes;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import Exception.InvalidKeyMyDictionaryException;
@@ -11,7 +12,7 @@ import Exception.InvalidKeyMyDictionaryException;
  * Created by vladc on 22.10.2016.
  */
 public class MyDictionary<K, V> implements MyIDictionary<K, V>, Serializable {
-    private HashMap<K, V> dict;
+    private Map<K, V> dict;
 
     public MyDictionary() {
         dict = new HashMap<>();
@@ -24,7 +25,7 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V>, Serializable {
         }
     }
 
-    public HashMap<K, V> getDict() {
+    public Map<K, V> getDict() {
         return this.dict;
     }
 

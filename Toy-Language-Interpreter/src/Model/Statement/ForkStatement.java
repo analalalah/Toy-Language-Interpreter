@@ -2,6 +2,7 @@ package Model.Statement;
 
 import DataTypes.*;
 import Exception.MyStatementExecutionException;
+import Model.IdProvider;
 import Model.ProgramState;
 
 import java.io.BufferedReader;
@@ -17,7 +18,8 @@ public class ForkStatement implements IStatement {
     }
 
     public ProgramState execute(ProgramState state) throws MyStatementExecutionException {
-        int id = state.getId() * 10;
+//        int id = state.getId() * 10;
+        int id = IdProvider.getNextId();
 
         MyIStack<IStatement> exeStack = new MyStack<>();
 //        exeStack.push(this.statement); // the statement is pushed on the stack by the constructor of ProgramState
@@ -31,7 +33,11 @@ public class ForkStatement implements IStatement {
 
         MyIHeap heap = state.getHeap();
 
-        return new ProgramState(id, exeStack, symTable, out, fileTable, heap, this.statement);
+//        MyIDictionary<Integer, Integer> latchTable = state.getLatchTable();
+
+        MyILatchTable latchTable = state.getLatchTable();
+
+        return new ProgramState(id, exeStack, symTable, out, fileTable, heap, latchTable, this.statement);
     }
 
     public String toString() {

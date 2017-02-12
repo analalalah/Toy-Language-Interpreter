@@ -1,6 +1,7 @@
 package DataTypes;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import Exception.EmptyMyListException;
@@ -40,5 +41,9 @@ public class MyList<T> implements MyIList<T>, Serializable {
             str += "\n";
         }
         return str;
+    }
+
+    public Iterator iterator() {
+        return queue.iterator();
     }
 }

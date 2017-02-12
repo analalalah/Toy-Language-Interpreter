@@ -34,10 +34,37 @@ public class Controller {
                 new MyList<>(),
                 new MyDictionary<>(),
                 new MyHeap(),
+//                new MyDictionary<>(),
+                new MyLatchTable(),
                 st
         );
         this.repo.add(state);
         id++;
+    }
+
+    public IRepository getRepository() {
+        return repo;
+    }
+
+    public void allStepGUI() throws InterruptedException {
+        executor = Executors.newFixedThreadPool(2);
+        // remove the completed programs
+        List<ProgramState> list = removeCompletedPrograms(repo.getProgramList());
+        if (list.size() == 0) {
+            // display a windows message saying that the execution terminates
+            executor.shutdownNow();
+        }
+        else {
+//            try {
+                oneStepForAllPrograms(list);
+//            }
+//            catch (InterruptedException e) {
+//                System.err.println("The execution Thread has been interrupted.");
+//                e.printStackTrace();
+//            }
+
+            executor.shutdownNow();
+        }
     }
 
     public void allStep() throws MyStatementExecutionException {
@@ -133,5 +160,13 @@ public class Controller {
 
     public void deserialize() {
         this.repo.deserialize();
+    }
+
+    public List<ProgramState> getProgramList() {
+        return repo.getProgramList();
+    }
+
+    public ProgramState getProgramById(int id) {
+        return repo.getProgramById(id);
     }
 }

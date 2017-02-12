@@ -2,6 +2,7 @@ package DataTypes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 import Exception.EmptyMyStackException;
@@ -40,5 +41,9 @@ public class MyStack<T> implements MyIStack<T>, Serializable {
             str += "\n";
         }
         return str;
+    }
+
+    public Iterator iterator() {
+        return stack.iterator();
     }
 }

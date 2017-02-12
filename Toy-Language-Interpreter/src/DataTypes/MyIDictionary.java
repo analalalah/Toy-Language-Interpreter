@@ -4,6 +4,7 @@ import Exception.InvalidKeyMyDictionaryException;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Set;
  */
 public interface MyIDictionary<K, V> {
     void clone(MyIDictionary<K, V> toClone);
-    HashMap<K, V> getDict();
+    Map<K, V> getDict();
     V get(Object key) throws InvalidKeyMyDictionaryException;
     V put(K key, V value);
     V remove(Object key) throws InvalidKeyMyDictionaryException;

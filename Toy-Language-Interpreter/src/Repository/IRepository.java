@@ -14,6 +14,7 @@ public interface IRepository {
     void logEndOfExecution();
     void serialize();
     void deserialize();
+    ProgramState getProgramById(int id);
     List<ProgramState> getProgramList();
     void setProgramList(List<ProgramState> list);
 }
